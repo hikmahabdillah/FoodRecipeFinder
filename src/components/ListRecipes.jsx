@@ -25,7 +25,7 @@ const ListRecipes = ({search}) => {
                     {meal.strMeal}
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-ellipsis line-clamp-3">
                   {meal.strInstructions}
                 </p>
                 <a
