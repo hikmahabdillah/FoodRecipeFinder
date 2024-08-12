@@ -8,7 +8,7 @@ function App() {
   const [debounceValue] = useDebounce(search, 500);
   return (
     <>
-      <div className="text-center mt-5">
+      <div className="text-center mt-5 text-neutral-800">
         <h1 className="text-4xl font-bold">Food Recipe Finder</h1>
         <p className="motto">
           Discover Your Next Favorite Dish, One Recipe at a Time
