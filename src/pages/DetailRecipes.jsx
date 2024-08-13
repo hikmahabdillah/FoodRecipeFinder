@@ -18,7 +18,7 @@ const DetailRecipes = () => {
     <>
       <section
         id="detailRecipes"
-        className="px-7 sm:px-10 py-12 flex flex-col items-center "
+        className="py-12 flex flex-col items-center "
       >
         <header className="text-left mb-8 w-full max-w-5xl flex items-center gap-4 justify-between">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-neutral-800">
@@ -48,7 +48,8 @@ const DetailRecipes = () => {
                 recipes.meals.map((meal) => {
                   return Object.keys(meal).map((key, index) => {
                     const ingredient = meal[`strIngredient${index + 1}`];
-                    return ingredient && <li key={key}>{ingredient}</li>;
+                    const measure = meal[`strMeasure${index + 1}`];
+                    return ingredient && <li key={key}>{measure} {ingredient}</li>;
                   });
                 })}
             </ul>
