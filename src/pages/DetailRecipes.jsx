@@ -40,6 +40,26 @@ const DetailRecipes = () => {
               {meals.strCategory}
             </span>
             <p className="text-gray-500 font-semibold mb-3"> {meals.strArea}</p>
+            <iframe
+              title={meals.strMeal}
+              className="mb-3 w-full h-64 max-w-full border border-gray-200 rounded-lg dark:border-gray-700"
+              src={`https://www.youtube.com/embed/${
+                meals.strYoutube.split("v=")[1]
+              }`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <p className="text-gray-500 font-medium mb-3">
+              Source :{" "}
+              <a
+                className="italic font-normal hover:text-yellow-600 duration-500"
+                target="_blank"
+                rel="noreferrer"
+                href={meals.strSource}
+              >
+                {meals.strSource}
+              </a>
+            </p>
             <p className="font-bold text-neutral-800 text-xl mb-2">
               Ingredients :
             </p>
@@ -49,7 +69,13 @@ const DetailRecipes = () => {
                   return Object.keys(meal).map((key, index) => {
                     const ingredient = meal[`strIngredient${index + 1}`];
                     const measure = meal[`strMeasure${index + 1}`];
-                    return ingredient && <li key={key}>{measure} {ingredient}</li>;
+                    return (
+                      ingredient && (
+                        <li key={key}>
+                          {measure} {ingredient}
+                        </li>
+                      )
+                    );
                   });
                 })}
             </ul>
