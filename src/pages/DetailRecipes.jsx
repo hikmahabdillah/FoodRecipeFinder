@@ -18,7 +18,7 @@ const DetailRecipes = () => {
     <>
       <section
         id="detailRecipes"
-        className="py-12 flex flex-col items-center "
+        className="py-5 md:py-12 flex flex-col items-center "
       >
         <header className="text-left mb-8 w-full max-w-5xl flex items-center gap-4 justify-between">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-neutral-800">
@@ -27,23 +27,23 @@ const DetailRecipes = () => {
         </header>
         <div
           key={meals.idMeal}
-          className="flex flex-col lg:flex-row gap-7 p-4 rounded-lg shadow w-full max-w-5xl text-neutral-800 bg-slate-50 "
+          className="flex flex-col md:flex-row gap-1 md:gap-7 p-4 rounded-lg shadow w-full max-w-5xl text-neutral-800 bg-slate-50"
         >
           <img
             src={meals.strMealThumb}
             alt={meals.strMeal}
-            className="object-cover object-center h-full max-h-[34rem] w-full lg:w-1/2 rounded-md mb-2"
+            className="object-cover object-center h-full md:h-[34rem] max-h-[34rem] w-full md:w-1/2 rounded-md mb-2"
           />
-          <div className="lg:w-1/2 relative">
+          <div className="md:w-1/2 md:py-5 relative h-full max-h-[34rem] overflow-auto">
             <h2 className="text-4xl font-bold">{meals.strMeal}</h2>
-            <span className="px-4 py-1 text-neutral-800 font-semibold rounded-md absolute top-0 right-0 bg-yellow-400">
+            <span className="px-4 py-1 text-neutral-800 font-semibold rounded-md absolute top-5 right-5 bg-yellow-400">
               {meals.strCategory}
             </span>
             <p className="text-gray-500 font-semibold mb-3"> {meals.strArea}</p>
             <p className="font-bold text-neutral-800 text-xl mb-2">
               Ingredients :
             </p>
-            <ul className="ml-4 font-medium text-neutral-800 list-disc mb-5">
+            <ul className="ml-5 font-medium text-neutral-800 list-disc mb-5">
               {recipes.meals.length > 0 &&
                 recipes.meals.map((meal) => {
                   return Object.keys(meal).map((key, index) => {
