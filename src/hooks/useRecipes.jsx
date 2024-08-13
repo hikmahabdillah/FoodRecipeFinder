@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRecipes } from "../services/recipes.service.js";
+import { getDetailRecipes, getRecipes } from "../services/recipes.service.js";
 
 export const useRecipes = (search) => {
   const [recipes, setRecipes] = useState([]);
@@ -11,3 +11,14 @@ export const useRecipes = (search) => {
 
   return recipes;
 };
+
+export const useDetailRecipes = (id) => {
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    getDetailRecipes((data) => {
+      setRecipes(data);
+    }, id);
+  }, [id]);
+
+  return recipes;
+}
