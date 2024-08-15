@@ -2,7 +2,7 @@ const HeroSection = () => {
   return (
     <>
       <div className="p-7 flex items-center justify-center min-h-screen bg-gradient-to-r from-[#FDA403] to-[#FF7700]">
-        <div className="my-10 flex flex-col sm:flex-row items-center justify-center gap-10 w-full max-w-6xl">
+        <div className="my-10 flex flex-col-reverse sm:flex-row items-center justify-center gap-10 w-full max-w-6xl">
         <div className="hero-text flex flex-col gap-2 w-full md:w-1/2 text-center sm:text-left items-center sm:items-start">
           <h1 className="font-bold text-4xl sm:text-3xl md:text-5xl lg:text-6xl">The Ultimate<br/> Cooking Upgrade</h1>
           <p className="text-base lg:text-lg lg:text-xl">Help you find the best recipes for every dish, making cooking easier and more enjoyable.</p>
