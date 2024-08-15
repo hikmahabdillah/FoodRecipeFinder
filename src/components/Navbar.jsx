@@ -25,7 +25,7 @@ const Navbar = () => {
   }, [prevScrollPos, visible]);
 
   return (
-    <nav className={`nav-sticky duration-700 z-10 bg-transparent fixed top-0 left-1/2 transform -translate-x-1/2 flex w-full max-w-[1500px] items-center justify-between p-5 px-10 border-transparent ${
+    <nav className={`nav-sticky duration-700 z-10 fixed top-0 left-1/2 transform -translate-x-1/2 flex w-full max-w-[1500px] items-center justify-between p-5 px-10 border-transparent ${
           visible ? "translate-y-0" : "-translate-y-full"
         }`}>
       <img src="../img/Logo CS w text.png" className="w-40" alt="" />
