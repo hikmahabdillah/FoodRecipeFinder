@@ -18,7 +18,7 @@ const DetailRecipes = () => {
     <>
       <section
         id="detailRecipes"
-        className="py-5 md:py-12 flex flex-col items-center "
+        className="py-5 md:py-12 flex flex-col items-center px-5"
       >
         <header className="text-left mb-8 w-full max-w-5xl flex items-center gap-4 justify-between">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-neutral-800">

@@ -16,6 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* Apply to all scrollbars */
 ::-webkit-scrollbar {
   width: 4px; /* Width of the scrollbar */
