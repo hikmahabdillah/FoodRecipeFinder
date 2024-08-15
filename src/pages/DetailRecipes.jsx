@@ -20,20 +20,26 @@ const DetailRecipes = () => {
         id="detailRecipes"
         className="py-5 md:py-12 flex flex-col items-center px-5"
       >
-        <header className="text-left mb-8 w-full max-w-5xl flex items-center gap-4 justify-between">
-          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl text-neutral-800">
-            Detail Recipes
-          </h1>
-        </header>
         <div
           key={meals.idMeal}
           className="flex flex-col md:flex-row gap-1 md:gap-7 p-4 rounded-lg shadow w-full max-w-5xl text-neutral-800 bg-slate-50"
-        >
-          <img
-            src={meals.strMealThumb}
-            alt={meals.strMeal}
-            className="object-cover object-center h-full md:h-[34rem] max-h-[34rem] w-full md:w-1/2 rounded-md mb-2"
-          />
+        >   
+            <div className="relative">
+            <img
+              src={meals.strMealThumb}
+              alt={meals.strMeal}
+              className="relative object-cover object-center h-full md:h-[34rem] max-h-[34rem] w-full rounded-md mb-2"
+            />
+            <span className="z-10 absolute top-5 right-5">
+              <input type="checkbox" id="bookmark-checkbox" className="hidden" />
+            <label
+              htmlFor="bookmark-checkbox"
+              className="cursor-pointer rounded-full px-3 py-2 bg-slate-50"
+            >
+              <i className="text-neutral-800 text-xl fa-regular fa-bookmark" />
+            </label>
+            </span>
+            </div>
           <div className="md:w-1/2 md:py-5 relative h-full max-h-[34rem] overflow-auto">
             <h2 className="text-4xl font-bold">{meals.strMeal}</h2>
             <span className="px-4 py-1 text-neutral-800 font-semibold rounded-md absolute top-5 right-5 bg-yellow-400">
