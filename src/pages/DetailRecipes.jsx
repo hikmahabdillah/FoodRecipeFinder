@@ -1,9 +1,29 @@
 import { Link, useParams } from "react-router-dom";
 import { useDetailRecipes } from "../hooks/useRecipes";
+import { useState, useEffect } from "react";
 
 const DetailRecipes = () => {
   const { id } = useParams();
   const recipes = useDetailRecipes(id);
+  const [bookmarkedItems, setBookmarkedItems] = useState([]);
+
+  useEffect(() => {
+    const savedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+    setBookmarkedItems(savedBookmarks);
+  }, []);
+
+  const toggleBookmark = (itemId) => {
+    let updatedBookmarks;
+
+    if (bookmarkedItems.includes(itemId)) {
+        updatedBookmarks = bookmarkedItems.filter(id => id !== itemId);
+    } else {
+        updatedBookmarks = [...bookmarkedItems, itemId];
+    }
+
+    localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
+    setBookmarkedItems(updatedBookmarks);
+  };
 
   if (!recipes || !recipes.meals || recipes.meals.length === 0) {
     return <div>Loading...</div>;
@@ -31,12 +51,12 @@ const DetailRecipes = () => {
               className="relative object-cover object-center h-full md:h-[34rem] max-h-[34rem] w-full rounded-md mb-2"
             />
             <span className="z-10 absolute top-5 right-5">
-              <input type="checkbox" id="bookmark-checkbox" className="hidden" />
+              <input type="checkbox" id="bookmark-checkbox" className="hidden" onClick={() => toggleBookmark(meals.idMeal)}/>
             <label
               htmlFor="bookmark-checkbox"
               className="cursor-pointer rounded-full px-3 py-2 bg-slate-50"
-            >
-              <i className="text-neutral-800 text-xl fa-regular fa-bookmark" />
+            > 
+            {bookmarkedItems.includes(meals.idMeal) ? <i className="text-neutral-800 text-xl fa-solid fa-bookmark"/> : <i className="text-neutral-800 text-xl fa-regular fa-bookmark" />}
             </label>
             </span>
             </div>
