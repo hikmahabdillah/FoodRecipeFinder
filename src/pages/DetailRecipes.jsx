@@ -1,29 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { useDetailRecipes } from "../hooks/useRecipes";
-import { useState, useEffect } from "react";
+import useBookmark from "../hooks/useBookmarks";
 
 const DetailRecipes = () => {
   const { id } = useParams();
   const recipes = useDetailRecipes(id);
-  const [bookmarkedItems, setBookmarkedItems] = useState([]);
-
-  useEffect(() => {
-    const savedBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    setBookmarkedItems(savedBookmarks);
-  }, []);
-
-  const toggleBookmark = (itemId) => {
-    let updatedBookmarks;
-
-    if (bookmarkedItems.includes(itemId)) {
-        updatedBookmarks = bookmarkedItems.filter(id => id !== itemId);
-    } else {
-        updatedBookmarks = [...bookmarkedItems, itemId];
-    }
-
-    localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-    setBookmarkedItems(updatedBookmarks);
-  };
+  const { bookmarkedItems, toggleBookmark } = useBookmark();
 
   if (!recipes || !recipes.meals || recipes.meals.length === 0) {
     return <div>Loading...</div>;
