@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import BookmarkListModal from "./Bookmarks";
 
-const BookmarkButton = () => {
+const BookmarkButton = ({openModal}) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const items = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
@@ -11,7 +12,7 @@ const BookmarkButton = () => {
   return (
     <span className="relative">
       <input type="checkbox" id="bookmark-checkbox" className="hidden" />
-      <label htmlFor="bookmark-checkbox" className="cursor-pointer rounded-full px-3 py-2 bg-slate-50">
+      <label htmlFor="bookmark-checkbox" className="cursor-pointer rounded-full px-3 py-2 bg-slate-50" onClick={() => openModal()}>
         <i className="text-neutral-800 text-xl fa-regular fa-bookmark"/>
       </label>
       <p className="font-semibold text-neutral-800 bg-yellow-400 px-2 rounded-full absolute -top-3 -right-2">{itemsTotal}</p>
@@ -19,9 +20,13 @@ const BookmarkButton = () => {
   )
 }
 
-const Navbar = () => {
+const Navbar = ({setIsModalOpen}) => {
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [visible, setVisible] = useState(true);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +53,7 @@ const Navbar = () => {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}>
       <img src="../img/Logo CS w text.png" className="w-40" alt="" />
-      <BookmarkButton/>
+      <BookmarkButton openModal={openModal} />
     </nav>
   )
 }

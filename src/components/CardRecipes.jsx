@@ -8,11 +8,11 @@ const CardRecipes = ({
   mealArea,
   mealInstructions,
   toggleBookmark,
-  bookmarkedItems
+  bookmarkedItems,
 }) => {
   return (
-    <div className="max-w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="relative">
+    <div className="max-w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-500 hover:scale-95 hover:rotate-3">
+      <Link to={`/detail-recipes/${idMeal}`} className="relative">
         <img
           className="relative rounded-t-lg max-w-lg w-full object-cover object-top h-64"
           src={mealThumb}
@@ -20,25 +20,34 @@ const CardRecipes = ({
           loading="lazy"
         />
         <span className="z-[5] absolute top-5 right-5">
-              <input type="checkbox" id={`bookmark-checkbox-${idMeal}`} className="hidden" onClick={() => toggleBookmark(idMeal)}/>
-            <label
-              htmlFor={`bookmark-checkbox-${idMeal}`}
-              className="cursor-pointer rounded-full px-3 py-2 bg-slate-50"
-            > 
-            {bookmarkedItems.includes(idMeal) ? <i className="text-neutral-800 text-xl fa-solid fa-bookmark"/> : <i className="text-neutral-800 text-xl fa-regular fa-bookmark" />}
-            </label>
-          </span>
-        <span className="px-4 py-1 text-neutral-800 rounded-md absolute top-3 left-3 bg-yellow-400">
+          <input
+            type="checkbox"
+            id={`bookmark-checkbox-${idMeal}`}
+            className="hidden"
+            onClick={() => toggleBookmark(idMeal)}
+          />
+          <label
+            htmlFor={`bookmark-checkbox-${idMeal}`}
+            className="cursor-pointer rounded-full px-3 py-2 bg-slate-50"
+          >
+            {bookmarkedItems.includes(idMeal) ? (
+              <i className="text-neutral-800 text-xl fa-solid fa-bookmark" />
+            ) : (
+              <i className="text-neutral-800 text-xl fa-regular fa-bookmark" />
+            )}
+          </label>
+        </span>
+        <span className="px-4 py-1 text-neutral-800 rounded-md absolute top-3 left-3 bg-yellow-400 font-medium">
           {mealCategory}
         </span>
-      </div>
+      </Link>
       <div className="p-5">
-        <a href="#">
+        <Link to={`/detail-recipes/${idMeal}`}>
           <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             {mealName}
           </h5>
           <p className="mb-3 font-medium text-gray-400">{mealArea}</p>
-        </a>
+        </Link>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-ellipsis line-clamp-3">
           {mealInstructions}
         </p>
