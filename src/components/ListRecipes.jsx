@@ -12,7 +12,6 @@ const ListRecipes = ({search}) => {
       duration: 1000,
       easing: 'ease-in-out',
       origin: 'bottom',
-      reset:true, 
       interval: 200,
     });
   }, []);
