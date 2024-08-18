@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import InputSearch from "./InputSearch";
 import ListRecipes from "./ListRecipes";
 
-const RecipesSection = ({setSearch, debounceValue}) => {
+const RecipesSection = ({setSearch, debounceValue, search}) => {
   useEffect(() => {
     window.ScrollReveal().reveal('.reveal', {
       duration: 1000,
@@ -22,7 +22,7 @@ const RecipesSection = ({setSearch, debounceValue}) => {
           Discover Your Next Favorite Dish, One Recipe at a Time
         </p>
       </div>
-      <InputSearch setSearch={setSearch}/>
+      <InputSearch search={search} setSearch={setSearch}/>
       <ListRecipes search={debounceValue}/>
     </section>
   )

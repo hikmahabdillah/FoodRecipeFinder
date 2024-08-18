@@ -6,6 +6,7 @@ import SkeletonCard from "./SkeletonCard";
 
 const ListRecipes = ({search}) => {
   const { meals = [] } = useRecipes(search);
+
   const { bookmarkedItems, toggleBookmark } = useBookmark();
   useEffect(() => {
     window.ScrollReveal().reveal('.reveal', {
