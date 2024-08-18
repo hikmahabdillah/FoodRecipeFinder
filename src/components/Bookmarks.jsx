@@ -4,15 +4,22 @@ import { Link } from "react-router-dom";
 
 const BookmarkListModal = ({ isOpen, onClose }) => {
   const [bookmarks, setBookmarks] = useState([]);
+  console.log(bookmarks);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isOpen) {
       const items = JSON.parse(localStorage.getItem("bookmarks")) || [];
-      setBookmarks(items); // Save bookmark IDs
+      setBookmarks(items);    
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     } else {
       setBookmarks([]);
+      setIsLoading(true);
     }
   }, [isOpen]);
+  
 
   if (!isOpen) return null;
 
@@ -27,11 +34,15 @@ const BookmarkListModal = ({ isOpen, onClose }) => {
           Bookmark List
         </h2>
         <div className="h-full max-h-80 overflow-auto">
-          {bookmarks.length > 0 ? (
+        {isLoading ? (
+          <p className="text-neutral-800 font-semibold text-center">Loading...</p>
+        ) : (
+          bookmarks.length > 0 ? (
             bookmarks.map((id) => <RecipeDetail key={id} id={id} />)
           ) : (
             <p className="text-gray-600">No bookmarks found.</p>
-          )}
+          )
+        )}
         </div>
         <button
           className="mt-6 bg-blue-500 text-white px-4 py-2 rounded"
@@ -61,7 +72,7 @@ const RecipeDetail = ({ id }) => {
       <span className="text-neutral-800 [&>p]:leading-tight">
         <p className="text-xl font-semibold">{recipeDetail.meals[0].strMeal}</p>
         <p className="text-gray-500 text-base font-medium">
-          {recipeDetail.meals[0].strMeal}
+          {recipeDetail.meals[0].strCategory}
         </p>
       </span>
     </Link>

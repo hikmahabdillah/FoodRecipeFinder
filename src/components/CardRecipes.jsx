@@ -12,13 +12,15 @@ const CardRecipes = ({
 }) => {
   return (
     <div className="max-w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-500 hover:scale-95 hover:rotate-3">
-      <Link to={`/detail-recipes/${idMeal}`} className="relative">
+      <div className="relative">
+      <Link to={`/detail-recipes/${idMeal}`}>
         <img
           className="relative rounded-t-lg max-w-lg w-full object-cover object-top h-64"
           src={mealThumb}
           alt={mealName}
           loading="lazy"
         />
+      </Link>
         <span className="z-[5] absolute top-5 right-5">
           <input
             type="checkbox"
@@ -40,7 +42,7 @@ const CardRecipes = ({
         <span className="px-4 py-1 text-neutral-800 rounded-md absolute top-3 left-3 bg-yellow-400 font-medium">
           {mealCategory}
         </span>
-      </Link>
+      </div>
       <div className="p-5">
         <Link to={`/detail-recipes/${idMeal}`}>
           <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
