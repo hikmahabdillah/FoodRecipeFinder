@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const BookmarkListModal = ({ isOpen, onClose }) => {
   const [bookmarks, setBookmarks] = useState([]);
-  console.log(bookmarks);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
