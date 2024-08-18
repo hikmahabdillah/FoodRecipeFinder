@@ -56,7 +56,7 @@ const CardRecipes = ({
         <Link
           to={`/detail-recipes/${idMeal}`}
           className="inline-flex text-neutral-800 items-center px-3 py-2 text-sm font-medium text-center hover:text-white bg-yellow-400 rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
-          aria-label="Read More for detail recipes"
+          aria-label={`Read more about ${mealName}`}
         >
           Read more
           <svg
