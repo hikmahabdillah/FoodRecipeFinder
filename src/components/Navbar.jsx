@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import BookmarkListModal from "./Bookmarks";
 
 const BookmarkButton = ({openModal}) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const items = JSON.parse(localStorage.getItem('bookmarks')) || [];
-
+  
   useEffect(() => {
     setItemsTotal(items.length);
   }, [items]); 

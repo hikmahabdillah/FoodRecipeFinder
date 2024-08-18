@@ -11,7 +11,7 @@ const CardRecipes = ({
   bookmarkedItems,
 }) => {
   return (
-    <div className="max-w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-500 hover:scale-95 hover:rotate-3">
+    <div className="reveal max-w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 duration-500 hover:scale-95 hover:rotate-3">
       <div className="relative">
       <Link to={`/detail-recipes/${idMeal}`}>
         <img

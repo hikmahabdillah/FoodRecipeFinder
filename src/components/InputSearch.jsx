@@ -1,6 +1,6 @@
 const InputSearch = ({setSearch}) => {
   return (
-    <form className="max-w-sm md:max-w-md mx-auto my-5">
+    <form className="reveal max-w-sm md:max-w-md mx-auto my-5">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

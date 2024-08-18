@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useBookmark from "../hooks/useBookmarks";
 import { useRecipes } from "../hooks/useRecipes";
 import CardRecipes from "./CardRecipes";
@@ -6,6 +7,14 @@ import SkeletonCard from "./SkeletonCard";
 const ListRecipes = ({search}) => {
   const { meals = [] } = useRecipes(search);
   const { bookmarkedItems, toggleBookmark } = useBookmark();
+  useEffect(() => {
+    window.ScrollReveal().reveal('.reveal', {
+      duration: 1000,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      interval: 200,
+    });
+  }, []);
 
   if (meals.length === 0) {
     return (
