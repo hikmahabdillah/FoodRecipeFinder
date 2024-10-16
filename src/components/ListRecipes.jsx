@@ -17,7 +17,7 @@ const ListRecipes = ({search}) => {
     });
   }, []);
 
-  if (meals.length === 0) {
+  if (meals && meals.length === 0) {
     return (
       <div className="flex flex-wrap items-center justify-center gap-5">
         {Array(6)
@@ -31,10 +31,12 @@ const ListRecipes = ({search}) => {
   return (
     <>
       <div className="flex flex-wrap items-center justify-center gap-5">
-        {meals.length > 0 &&
+        {meals && meals.length > 0 ?
           meals.map((meal) => (
             <CardRecipes key={meal.idMeal} idMeal={meal.idMeal} mealThumb={meal.strMealThumb} mealCategory={meal.strCategory} mealName={meal.strMeal} mealArea={meal.strArea} mealInstructions={meal.strInstructions} toggleBookmark={toggleBookmark} bookmarkedItems={bookmarkedItems}/>
-          ))}
+          )) : <h1 className="text-neutral-800 text-xl font-semibold">
+            Recipes Not Found
+          </h1>}
       </div>
     </>
   );
